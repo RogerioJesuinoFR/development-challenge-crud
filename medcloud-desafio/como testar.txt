@@ -1,0 +1,55 @@
+pré-requisitos faça o download do node js, mysql workbench, do postman e do docker
+
+1. Digite o comando no terminal da pasta raiz do vscode
+
+docker-compose up -d
+
+2. No mysql workbench  conecte-se ao banco de dados MySQL em execução no contêiner Docker.
+
+Hostname: localhost
+Port: 3306
+Username: root
+Password: senha123
+
+3. Digite o comando no terminal do vscode
+
+node app.js
+
+4. No post
+   Inserir paciente:
+   URL: http://localhost:3000/patients
+   Method: POST
+   Body: (raw JSON)
+   insira um json no seguinte formato com os dados do paciente:
+   {
+     "name": "John Doe",
+     "email": "john.doe@example.com",
+     "birthDate": "1980-01-01",
+     "address": "123 Main St"
+   }
+
+   Obter Todos os Pacientes
+   URL: http://localhost:3000/patients
+   Method: GET
+   
+   Obter Paciente por ID
+   URL: http://localhost:3000/patients/{id}
+   Method: GET
+
+   Atualizar paciente por ID:
+   URL: http://localhost:3000/patients/{id}
+   Method: PUT
+   Body: (raw JSON)
+   insira um json no seguinte formato com os dados do paciente atualizado:
+   {
+     "name": "John Doe",
+     "email": "john.doe@example.com",
+     "birthDate": "1980-01-01",
+     "address": "123 Main St"
+   }
+
+   Deletar Paciente por ID
+   URL: http://localhost:3000/patients/{id}
+   Method: DELETE
+
+Para verificar os resultados, no Mysql Workbench faça consultas na tabela de pacientes a cada requisição a ser testada.
