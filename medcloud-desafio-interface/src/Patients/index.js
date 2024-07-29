@@ -9,6 +9,7 @@ export default function PatientsPage({ openSnackBar }) {
   const [patientsList, setPatientsList] = useState([]);
   const [patientToEdit, setPatientToEdit] = useState(null);
 
+  // Load patients from backend when component mounts
   useEffect(() => {
     const fetchPatients = async () => {
       try {

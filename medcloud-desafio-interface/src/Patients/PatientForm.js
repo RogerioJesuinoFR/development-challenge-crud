@@ -27,16 +27,19 @@ const PatientForm = memo(({ addOrUpdatePatient, patientToEdit }) => {
     const newErrors = { name: '', email: '', birthDate: '' };
     let isValid = true;
 
+    // Name validation
     if (!/^[A-Z][a-zA-Z]+(?:\s[A-Z][a-zA-Z]+)+$/.test(formData.name)) {
       newErrors.name = 'Nome deve começar com letra maiúscula e ter pelo menos um sobrenome.';
       isValid = false;
     }
 
+    // Email validation
     if (!/^[^\s@]+@[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Email deve conter um "@"';
       isValid = false;
     }
 
+    // Birth date validation
     const minDate = new Date('1874-01-01');
     const birthDate = new Date(formData.birthDate);
     if (isNaN(birthDate) || birthDate < minDate) {
