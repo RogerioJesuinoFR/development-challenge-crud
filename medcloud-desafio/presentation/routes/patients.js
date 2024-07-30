@@ -6,7 +6,6 @@ const ErrorResponse = require('../../infrastructure/exception/errorResponse');
 
 const router = express.Router();
 
-// Atualize o manipulador de erros
 const handleErrors = (error, res) => {
     if (error instanceof ValidationException) {
       res.status(400).json(new ErrorResponse('Bad Request', error.title, error.message, 400));

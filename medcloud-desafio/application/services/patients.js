@@ -1,8 +1,7 @@
 const Patient = require('../../repository/models/patient');
 const ValidationException = require('../../infrastructure/exception/validationException');
-const DatabaseException = require('../../infrastructure/exception/databaseException'); // Correção aqui
+const DatabaseException = require('../../infrastructure/exception/databaseException');
 
-// Função para criar um novo paciente
 const createPatient = async function (patient) {
     try {
         const newPatient = await Patient.create({
@@ -20,7 +19,6 @@ const createPatient = async function (patient) {
     }
 };
 
-// Função para atualizar um paciente pelo ID
 const updatePatientById = async function (id, patientData) {
     try {
       const patient = await Patient.findByPk(id);
@@ -41,7 +39,6 @@ const updatePatientById = async function (id, patientData) {
     }
   };
 
-// Função para obter todos os pacientes
 const getAllPatients = async function () {
     try {
         const patients = await Patient.findAll();
@@ -51,7 +48,6 @@ const getAllPatients = async function () {
     }
 };
 
-// Função para obter um paciente pelo ID
 const getPatientById = async function (id) {
     try {
         const patient = await Patient.findByPk(id);
@@ -64,7 +60,6 @@ const getPatientById = async function (id) {
     }
 };
 
-// Função para deletar um paciente pelo ID
 const deletePatientById = async function (id) {
     try {
         const deletedPatient = await Patient.destroy({
